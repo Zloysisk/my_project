@@ -1,7 +1,9 @@
-names = ["Артемий", "Борис", "Влад", "Гоша", "Дима", "Евгений", "Женя", "Захар"]
-
-
-
-for count in range(0,len(names)):
-    if count % 2 != 0:
-        print(names[count], end= " ")
+#cells = [3, 0, 6, 2, 10]
+cells = [1,2,3]
+for count, cell in enumerate(cells):
+    if cell > count + 1: 
+        cells.remove(cell)
+    else: 
+        cells.clear()
+        
+print(cells)
