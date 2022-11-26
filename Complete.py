@@ -876,7 +876,9 @@ elif count == 1:
     print("Есть ровно один такой же символ.")
 elif count == 2:
     print("Таких символов два.")
+
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 words_list = []
 counts = [0, 0, 0]
 
@@ -895,4 +897,177 @@ while text != "end":
 print("Подсчёт слов в тексте")
 for i in range(3):
     print(words_list[i], ':', counts[i])
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+zoo = ['lion', 'kangaroo', 'elephant', 'monkey']
+print(zoo)
+zoo.insert(1,'bear')
+print(zoo)
+zoo.remove('elephant')
+print(zoo)
+print(f"Лев сидит в клетке номер {zoo.index('lion') +1}")
+print(f"Обезьяна сидит в клетке номер {zoo.index('monkey') +1}")
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+employee = int(input("Количество сотрудников: "))
+employee_list = []
+
+for numb in range(employee): 
+    payments = int(input(f"Заралата {numb + 1} сотрудника "))
+    employee_list.append(payments)
+
+for num in employee_list: 
+    if num == 0:
+        employee_list.remove(num)
+        employee -=1
+
+print(f"Осталось сотрудников {employee}")
+print(f"Зарплаты: {employee_list}")
+print(f"Максимальная зарплата: {max(employee_list)}")
+print(f"Минимальная зарплата: {min(employee_list)}")
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+def new_film_exist(movie ,films_list):
+    for numb in films_list:
+        if numb == movie: 
+            return True
+    return False
+
+films = [
+
+    'Крепкий орешек', 'Назад в будущее', 'Таксист', 
+
+    'Леон', 'Богемская рапсодия', 'Город грехов',
+
+    'Мементо', 'Отступники', 'Деревня', 
+
+    'Проклятый остров', 'Начало', 'Матрица'
+
+]
+top_film = []
+
+
+while True: 
+    print(f"Ваш текущий топ фильмов: {top_film}")
+    new_film = input("Название фильма: ")
+    
+    if new_film_exist(new_film, films): 
+        print("Команды: добавить, вставить, удалить: ")
+        command = input("Введите команду: ") 
+        if command == "добавить":
+            top_film.append(new_film)
+        if command == "удалить":
+            if new_film_exist(new_film, top_film):
+                top_film.remove(new_film)
+            else: 
+                print("Такого фильма нет в рейтинге")
+        if command == 'вставить':
+            index = int(input('на какое место? '))
+            top_film.insert(index -1, new_film)
+    else:
+        print('Такого фильма нет на сайте')
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+main = [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1]
+first_company = [0, 0, 0]
+second_company = [1, 0, 0, 1, 1]
+third_company = [1, 1, 1, 0, 1]
+main.extend(first_company)
+main.extend(second_company)
+main.extend(third_company)
+
+print(f"Общий список задач: {main}")
+print(f"Кол-во невыполненных задач: {main.count(0)}")
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+first_massege = list(input("Певое сообщение: "))
+second_massege = list(input("Второе сообщение: "))
+
+numb_1 = first_massege.count("!") + first_massege.count("?") 
+numb_2 = second_massege.count("!") + second_massege.count("?")
+if numb_1 > numb_2: 
+    first_massege.extend(second_massege)
+    for word in first_massege: 
+        print(f"{word}", end = '')
+else:
+    second_massege.extend(first_massege)
+    for word in second_massege: 
+        print(f"{word}", end = '')
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+list_of_pack = []
+buffer = []
+mistake_count = 0
+lost_pack = 0
+number_of_pack = int(input("Количество пакетов: "))
+
+for i_num in range(number_of_pack): 
+    print(f"\nПакет номер {i_num +1}")
+    for i_pack in range(4):
+        pack_pack = int(input(f"{i_pack +1} бит: "))
+        buffer.append(pack_pack)
+        if pack_pack > 0 :  
+            mistake_count += 1
+    if mistake_count <= 1:
+        list_of_pack.extend(buffer)
+    else:
+        lost_pack += 1
+
+
+print(f"Полученное сообщение: {list_of_pack}")
+print(f"Кол-во ошибок в сообщении: {list_of_pack.count(-1)}")
+print(f"Кол-во потерянных пакетов: {lost_pack}")
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#матрица из вложенных циклов
+matrix = [[1, 2 ,3], [4, 5, 6], [7, 8, 9]]
+for i in matrix: 
+    for s in i:
+        print(s, end=" ")
+    print() 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#поделить команду
+members = int(input("Кол-во участников: "))
+command = int(input("Кол-во человек в команде: "))
+
+note = []
+num = 1
+
+if members % command == 0 : 
+
+    for _ in range (members // command): 
+        note.append(list(range(num, num + command)))
+        num += command 
+
+    print(note)
+else: 
+    print(f"{members} участников невозможно поделить на кманды по {command} человек")
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+goods = [["яблоки", 50], ["апельсины", 190], ["груши", 100], ["нектарины", 200], ["бананы", 77]]
+print(f"Текущий ассортимент: {goods}")
+fruit_name = input("Какой фрукт добавить?  ")
+price = int(input("Сколько стоит новый фрукут? "))
+
+new_good = []
+
+
+
+new_good.append(fruit_name)
+new_good.append(price)
+goods.append(new_good)
+print(f"Новый ассортимент: {goods}")
+
+for i_price in goods:
+    i_price[1] = i_price[1] + i_price[1] / 100 * 8
+
+print(f"Новый ассортимент с увел. ценой: {goods}")
+
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
