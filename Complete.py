@@ -1117,3 +1117,103 @@ prices_second = [get_higher_price(second_percent, i_price) for i_price in prices
 print(f"Сумма цен за каждый год {round(sum(note), 2)}, {round(sum(prices_first), 2)}, {round(sum(prices_second), 2)}")
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+original_prices = [1.25, -9.45, 10.22, 3.78, -5.92, 1.16]
+
+сorrect_prices = [x if x > 0 else 0 for x in original_prices ]
+
+print(f"{сorrect_prices}")
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#рандомный выбор
+import random
+
+a = random.randrange(13, 124543)
+b = random.randrange(556, 543336)
+
+note = [x for x in range(a, b) if x % 2 == 0]
+
+print(random.choice(note))
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#игра битва отрядов
+
+squad_1 = [random.randrange(50, 80) for _ in range(10)]
+squad_2 = [random.randrange(30, 60) for _ in range(10)]
+squad_3 = ["Погиб" if squad_1[i] + squad_2[i] > 100 else "Выжил" for i in range(10)]
+
+print(f"Урон первого отряда {squad_1}")
+print(f"Урон второго отряда {squad_2}")
+print(f"Состояние третьего отряда {squad_3}")
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+import random
+upcount = []
+squad_1 = [random.randrange(50, 80) for _ in range(10)]
+
+squad_2 = [random.randrange(30, 45) for _ in range(10)]
+
+squad_3 = ["Чудом выжили" if squad_1[i] + squad_2[i] < 100 else "Трагически сдохли" for i in range(10)]
+new_squad_1 = []
+new_squad_2 = []
+new_squad_3 = []
+
+
+print(f"\nПервый отряд {squad_1}")
+print(f"\nВторой отряд {squad_2}")
+print(f"\nТретий отряд {squad_3}")
+
+for count, x in enumerate(squad_3):
+  if x == "Чудом выжили": 
+    new_squad_1.append(squad_1[count])
+    new_squad_2.append(squad_2[count])
+    new_squad_3.append(squad_3[count])
+
+
+print(f"\n Осталось в первом отряде {new_squad_1}")
+print(f"\n Осталось во втором отряде {new_squad_2}")
+print(f"\n Осталось в третьем отряде {new_squad_3}")
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+import random
+#original_prices = [-12, 3, 5, -2, 1]
+original_prices = [random.randrange(-20, 45) for _ in range(5)]
+
+
+new_prices = original_prices[:]
+
+for i in range(len(original_prices)):
+
+    if new_prices[i] < 0:
+
+        new_prices[i] = 0
+
+print("Мы потеряли: ",  abs(sum(original_prices) - sum(new_prices)))
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[48, -10, 9, 38, 17, 50, -5, 43, 46, 12]
+print(f"Список {nums}")
+print()
+print(f"первые пять {nums[:5]}") # первые пять 
+print(f"весь список кроме последних 2 {nums[:-2]}") # весь список кроме последних 2
+print(f"все элементы с четными индексами {nums[::2]}") # все элементы с четными индексами
+print(f"все элеменрты нечётыми индексами {nums[1::2]}") # все элеменрты нечётыми индексами
+print(f"все элементы в обратном порядке {nums[::-1]}") # все элементы в обратном порядке 
+print(f"все элементы списка через один в обратном порядке, начиная с последнего {nums[::-2]}") # все элементы списка через один в обратном порядке, начиная с последнего
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+import random 
+
+n = [random.randrange(1,5) for _ in range(10)]
+a = random.randrange(1,10)
+b = random.randrange(1,10)
+n = n[:a] + n[b + 1:]
+print(n)
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
